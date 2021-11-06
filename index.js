@@ -1,19 +1,20 @@
 let balance = 500.00;
 
-class Withdrawal {
-
+class Account {
   constructor(amount) {
-    this.amount = amount;
+  this.amount = amount;
   }
-
+}
+class Withdrawal extends Account {
   commit() {
     balance -= this.amount;
   }
-
 }
-
-
-
+class Deposit extends Account {
+  commit() {
+    balance += this.amount;
+  }
+}
 
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
