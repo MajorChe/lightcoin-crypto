@@ -1,30 +1,39 @@
-let balance = 500.00;
-
 class Account {
-  constructor(amount) {
-  this.amount = amount;
+  constructor(username) {
+  this.username = username;
+  this.balance = 0;
   }
 }
-class Withdrawal extends Account {
+
+class Withdrawal {
+  constructor (account, amount) {
+    this.amount = amount;
+    this.account = account;
+  }
   commit() {
-    balance -= this.amount;
+    this.account.balance -= this.amount;
   }
 }
-class Deposit extends Account {
+
+class Deposit {
+  constructor (account, amount) {
+    this.account = account
+    this.amount = amount;
+  }
   commit() {
-    balance += this.amount;
+    this.account.balance += this.amount;
   }
 }
 
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
 
-t1 = new Withdrawal(50.25);
+const myAccount = new Account('MajorChe');
+t1 = new Deposit(myAccount,50.25);
 t1.commit();
-console.log('Transaction 1:', t1);
+console.log('Updated account info of myAccount: ', myAccount);
 
-t2 = new Withdrawal(9.99);
+t2 = new Withdrawal(myAccount,9.99);
 t2.commit();
-console.log('Transaction 2:', t2);
+console.log('Updated account info of myAccount: ', myAccount);
 
-console.log('Balance:', balance);
