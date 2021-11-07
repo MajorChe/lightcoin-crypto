@@ -55,7 +55,7 @@ t2 = new Withdrawal(myAccount,11.99);
 t2.commit();
 console.log('Updated account info of myAccount: ', myAccount.balance);
 
-t1 = new Deposit(myAccount,25.25);
-t1.commit();
+t3 = new Deposit(myAccount,25.25);
+t3.commit();
 console.log('Updated account info of myAccount: ', myAccount.balance);
 
